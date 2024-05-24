@@ -9,13 +9,13 @@
     tomcat_script: "/opt/manage_tomcat.sh"
 
   tasks:
-    - name: Update project using git
-      ansible.builtin.git:  # Using the 'git' module to clone or update a Git repository
-        repo: 'git@github.com:qileonren/MCCM_Automation.git'  # Git repository URL
-        dest: /path/to/your/local/repo  # Destination directory on the target machine
-        version: HEAD  # Check out the latest version
-        force: yes  # Force the update even if there are local changes
-  
+   # - name: Update project using git
+   #  ansible.builtin.git:  # Using the 'git' module to clone or update a Git repository
+   #     repo: 'git@github.com:qileonren/MCCM_Automation.git'  # Git repository URL
+   #   dest: /path/to/your/local/repo  # Destination directory on the target machine
+   #     version: HEAD  # Check out the latest version
+   #    force: yes  # Force the update even if there are local changes
+        
     - name: Copy manage_tomcat.sh to the target machine
       ansible.builtin.copy:  # Using the 'copy' module to copy a file to the target machine
         src: ./manage_tomcat.sh  # Source file on the control machine
