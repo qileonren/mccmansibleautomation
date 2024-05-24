@@ -21,6 +21,7 @@
         src: ./manage_tomcat.sh  # Source file on the control machine
         dest: "{{ tomcat_script }}"  # Destination path on the target machine
         mode: '0755'  # Set the file permissions to be executable
+        delegate_to: {{servername}}
 
     - name: Stop Tomcat instances
       ansible.builtin.shell: "{{ tomcat_script }} {{ item }} stop"  # Using the 'shell' module to stop Tomcat instances
