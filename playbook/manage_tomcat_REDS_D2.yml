@@ -1,8 +1,12 @@
----
-- name: Test Connection
+- name: Restart tomcat9
   hosts: localhost
-  gather_facts: no
-
   tasks:
-    - name: Ping hosts
-      ping:
+
+- name: Execute the restart server
+  hosts: localhost
+  gather_facts: yes
+  tasks: 
+    - name: get the server script 
+       script: mccm/restart.sh
+       register: restart_result
+       delegate_to: {{servername}}
