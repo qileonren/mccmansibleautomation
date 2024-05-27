@@ -4,3 +4,4 @@
   tasks:
     - name: Ping the host
       ansible.builtin.ping:
+      delegate_to: {{servername}}
