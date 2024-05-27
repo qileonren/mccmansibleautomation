@@ -1,25 +1,24 @@
----
 - name: Manage Tomcat Service on lctcvd7115
-  hosts: lctcvd7115  # Target the host named lctcvd7115
-  become: yes  # Run the tasks with elevated privileges
+  hosts: lctcvd7115
+  become: yes
   vars:
-    tomcat_instance: "<<<tomcat9_instance_N>>>"  # Define a variable for the Tomcat instance name
+    tomcat_instance: "<<<tomcat9_instance_N>>>"
 
   tasks:
     - name: Stop Tomcat service
-      shell: /path/to/stop_tomcat.sh {{ tomcat_instance }}  # Run the stop_tomcat.sh script with the instance name
-      register: stop_output  # Register the output of the task
+      shell: /path/to/manage_tomcat.sh {{ tomcat_instance }} stop
+      register: stop_result
 
     - name: Verify Tomcat has stopped
-      shell: ps -ef | grep tomcat  # Check the process list for any Tomcat processes
-      register: verify_shutdown  # Register the output of the task
-      failed_when: "'tomcat' in verify_shutdown.stdout"  # Fail the task if 'tomcat' is found in the output
+      shell: /path/to/manage_tomcat.sh {{ tomcat_instance }} status
+      register: verify_shutdown
+      failed_when: "'tomcat' in verify_shutdown.stdout"
 
     - name: Start Tomcat service
-      shell: /path/to/start_tomcat.sh {{ tomcat_instance }}  # Run the start_tomcat.sh script with the instance name
-      register: start_output  # Register the output of the task
+      shell: /path/to/manage_tomcat.sh {{ tomcat_instance }} start
+      register: start_result
 
     - name: Verify Tomcat has started
-      shell: ps -ef | grep tomcat  # Check the process list for the Tomcat process
-      register: verify_startup  # Register the output of the task
-      failed_when: "'tomcat' not in verify_startup.stdout"  # Fail the task if 'tomcat' is not found in the output
+      shell: /path/to/manage_tomcat.sh {{ tomcat_instance }} status
+      register: verify_startup
+      failed_when: "'tomcat' not in verify_startup.stdout"
