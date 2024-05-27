@@ -1,0 +1,6 @@
+---
+- name: Ping lctcvd7115
+  hosts: lctcvd7115
+  tasks:
+    - name: Ping the host
+      ansible.builtin.ping:
