@@ -1,6 +1,5 @@
 - name: Ping server
-  hosts: localhost
+  hosts: {{ servername }}
   tasks:
     - name: Ping the host
       ansible.builtin.ping:
-        delegate_to: "{{ servername }}"
