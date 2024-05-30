@@ -1,0 +1,14 @@
+---
+- name: Test Playbook Execution
+  hosts: your_target_hosts
+  tasks:
+    - name: Ensure a package is installed
+      apt:
+        name: your_package_name
+        state: present
+
+    - name: Ensure a service is running
+      service:
+        name: your_service_name
+        state: started
+        enabled: yes
