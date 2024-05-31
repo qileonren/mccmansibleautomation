@@ -1,6 +1,6 @@
 ---
 - name: Test Playbook Execution
-  hosts: your_target_hosts
+  hosts: localhost
   tasks:
     - name: Ensure a package is installed
       apt:
