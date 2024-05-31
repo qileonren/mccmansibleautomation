@@ -1,14 +1,12 @@
-- name: Manage Tomcat Service
-  hosts: localhost
+---
+- name: Stop Tomcat instance
+  hosts: your_hosts_group
   become: yes
-  vars:
-    tomcat_instance: "tomcat9_instance_0"
-
   tasks:
-    - name: Stop Tomcat service
-      shell:  /opt/docm/tomcat9_instance_0/bin/shutdonw.sh {{ tomcat_instance }} stop
-      register: stop_result
+    - name: Navigate to Tomcat bin directory
+      command: chdir=/opt/docm/tomcat9_instance_0/bin /bin/true
 
-    - name: Start Tomcat service
-      shell: /opt/docm/tomcat9_instance_0/bin/startup.sh start
-      register: start_result
+    - name: Stop Tomcat instance
+      command: ./shutdown.sh
+      args:
+        chdir: /opt/docm/tomcat9_instance_0/bin
