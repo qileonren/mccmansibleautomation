@@ -1,6 +1,6 @@
 ---
 - name: Stop Tomcat instance
-  hosts: your_hosts_group
+  hosts: localhost
   become: yes
   tasks:
     - name: Navigate to Tomcat bin directory
