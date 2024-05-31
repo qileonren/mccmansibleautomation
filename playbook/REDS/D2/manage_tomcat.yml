@@ -1,5 +1,5 @@
 - name: Manage Tomcat Service on lctcvd7115
-  hosts: lctcvd7115
+  hosts: localhost
   become: yes
   vars:
     tomcat_instance: "<<<tomcat9_instance_N>>>"
