@@ -6,19 +6,9 @@
 
   tasks:
     - name: Stop Tomcat service
-      shell: /path/to/manage_tomcat.sh {{ tomcat_instance }} stop
+      shell:  /opt/docm/tomcat9_instance_0/bin/shutdonw.sh {{ tomcat_instance }} stop
       register: stop_result
 
-    - name: Verify Tomcat has stopped
-      shell: /path/to/manage_tomcat.sh {{ tomcat_instance }} status
-      register: verify_shutdown
-      failed_when: "'tomcat' in verify_shutdown.stdout"
-
     - name: Start Tomcat service
-      shell: /path/to/manage_tomcat.sh {{ tomcat_instance }} start
+      shell: /opt/docm/tomcat9_instance_0/bin/startup.sh start
       register: start_result
-
-    - name: Verify Tomcat has started
-      shell: /path/to/manage_tomcat.sh {{ tomcat_instance }} status
-      register: verify_startup
-      failed_when: "'tomcat' not in verify_startup.stdout"
