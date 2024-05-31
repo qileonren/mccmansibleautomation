@@ -1,4 +1,4 @@
-- name: Manage Tomcat Service on lctcvd7115
+- name: Manage Tomcat Service
   hosts: localhost
   become: yes
   vars:
