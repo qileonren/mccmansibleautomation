@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: Navigate to Tomcat bin directory
-      command: chdir=/opt/docm/tomcat9_instance_0/bin /bin/true
+      command: chdir=/opt/docm/tomcat9_instance_0/bin
 
     - name: Stop Tomcat instance
       command: ./shutdown.sh
