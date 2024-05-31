@@ -2,7 +2,7 @@
   hosts: localhost
   become: yes
   vars:
-    tomcat_instance: "<<<tomcat9_instance_N>>>"
+    tomcat_instance: "<<<tomcat9_instance_0>>>"
 
   tasks:
     - name: Stop Tomcat service
