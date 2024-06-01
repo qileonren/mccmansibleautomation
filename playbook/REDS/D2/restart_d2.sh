@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# Tomcat安装路径
+# Tomcat installation path
 TOMCAT_HOME="/opt/docm/tomcat9_instance_0/"
 
-# 停止Tomcat
+# Stop Tomcat
 echo "Stopping Tomcat..."
 $TOMCAT_HOME/bin/shutdown.sh
 
-# 等待Tomcat完全停止
+# Waiting for Tomcat to fully stop
 sleep 10
 
-# 启动Tomcat
+# Start Tomcat
 echo "Starting Tomcat..."
 $TOMCAT_HOME/bin/startup.sh
 
