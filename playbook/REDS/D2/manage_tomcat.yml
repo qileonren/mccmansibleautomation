@@ -1,12 +1,14 @@
 ---
-- name: Stop Tomcat instance
+- name: Restart Documentum D2 service
   hosts: localhost
   become: yes
   tasks:
-    - name: Navigate to Tomcat bin directory
-      command: chdir=/opt/docm/tomcat9_instance_1/ /bin/true
+    - name: Ensure restart_d2.sh script is present
+      get_url:
+        url: "https://raw.githubusercontent.com/your_github_username/your_repository_name/main/restart_d2.sh"
+        dest: /tmp/restart_d2.sh
+        mode: '0755'
 
- #   - name: Stop Tomcat instance
- #     command: ./shutdown.sh
- #     args:
- #       chdir: /opt/docm/tomcat9_instance_0/bin
+    - name: Execute restart_d2.sh script
+      command: /tmp/restart_d2.sh
+
