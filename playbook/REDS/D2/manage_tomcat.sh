@@ -1,27 +1,18 @@
 #!/bin/bash
 
-TOMCAT_INSTANCE=$1
-ACTION=$2
-TOMCAT_BIN_PATH="/opt/docm/${TOMCAT_INSTANCE}/bin"
+# Tomcat安装路径
+TOMCAT_HOME="cd/opt/docm/tomcat9_instance_0/"
 
-case $ACTION in
-  start)
-    echo "Starting Tomcat service..."
-    cd $TOMCAT_BIN_PATH
-    ./startup.sh
-    ;;
-  stop)
-    echo "Stopping Tomcat service..."
-    cd $TOMCAT_BIN_PATH
-    ./shutdown.sh
-    ;;
-  status)
-    echo "Checking Tomcat service status..."
-    ps -ef | grep tomcat
-    ;;
-  *)
-    echo "Usage: $0 {tomcat_instance} {start|stop|status}"
-    exit 1
-    ;;
-esac
+# 停止Tomcat
+echo "Stopping Tomcat..."
+$TOMCAT_HOME/bin/shutdown.sh
+
+# 等待Tomcat完全停止
+sleep 10
+
+# 启动Tomcat
+echo "Starting Tomcat..."
+$TOMCAT_HOME/bin/startup.sh
+
+echo "D2 service has been restarted."
 
