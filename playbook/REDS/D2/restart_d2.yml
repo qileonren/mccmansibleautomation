@@ -1,6 +1,6 @@
 ---
 - name: Restart Documentum D2 service
-  hosts: tomcat_servers
+  hosts: localhost
   become: yes
   tasks:
     - name: Copy restart_d2.sh script to remote server
