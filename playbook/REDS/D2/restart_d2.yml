@@ -1,6 +1,6 @@
 ---
 - name: Restart Documentum D2 service
-  hosts: ；localhost
+  hosts: localhost
   become: yes
   tasks:
     - name: Run restart_d2.sh script on remote host
