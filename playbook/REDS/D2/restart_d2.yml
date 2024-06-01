@@ -5,7 +5,7 @@
   tasks:
     - name: Ensure restart_d2.sh script is present
       get_url:
-        url: "https://github.com/qileonren/mccmansibleautomation.git/playbook/REDS/D2/restart_d2.sh"
+        url: "https://github.com/qileonren/mccmansibleautomation/blob/main/playbook/REDS/D2/restart_d2.sh"
         dest: /tmp/restart_d2.sh
         mode: '0755'
 
