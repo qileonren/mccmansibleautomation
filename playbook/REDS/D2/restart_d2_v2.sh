@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to Tomcat installation
-TOMCAT_HOME=="/opt/docm/tomcat9_instance_0/"
+TOMCAT_HOME="/opt/docm/tomcat9_instance_0/"
 
 # Stop Tomcat
 echo "Stopping Tomcat..."
