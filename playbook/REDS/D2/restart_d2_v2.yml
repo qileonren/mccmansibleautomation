@@ -1,1 +1,19 @@
+---
+- name: Restart Documentum D2 service
+  hosts: tomcat_servers
+  become: yes
+  tasks:
+    - name: Run restart_d2.sh script on remote host
+      script: playbook/REDS/D2/restart_d2.sh
+      register: script_output
+      ignore_errors: yes  # Ignore errors to capture output
+
+    - name: Display script output
+      debug:
+        var: script_output.stdout_lines
+
+    - name: Check for script errors
+      fail:
+        msg: "The script failed with the following error: {{ script_output.stderr }}"
+      when: script_output.rc != 0
 
