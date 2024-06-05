@@ -5,7 +5,7 @@ TOMCAT_HOME="/opt/docm/tomcat9_instance_0"
 
 # Stop Tomcat
 echo "Stopping Tomcat..."
-$TOMCAT_HOME/shutdown.sh
+$TOMCAT_HOME/bin/shutdown.sh
 
 # Wait for Tomcat to fully stop
 sleep 10
@@ -21,7 +21,7 @@ fi
 
 # Start Tomcat
 echo "Starting Tomcat..."
-$TOMCAT_HOME/startup.sh
+$TOMCAT_HOME/bin/startup.sh
 
 # Wait for Tomcat to fully start
 sleep 10
