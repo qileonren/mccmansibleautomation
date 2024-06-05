@@ -3,8 +3,8 @@
   hosts: localhost
   become: yes
   tasks:
-    - name: Run restart_d2.sh script on remote host
-      script: restart_d2.sh
+    - name: Run restart_d2_v1.2.sh script on remote host
+      script: restart_d2_v1.2.sh
       register: script_output
 
     - name: Display script output
